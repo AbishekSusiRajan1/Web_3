@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head section: metadata and title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f0ede4;
+            color: #2f3e2e;
+            font-family: 'Segoe UI', Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+
+        h2 {
+            border-bottom: 2px solid #4b5d45;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            color: #4b5d45;
+        }
+
+        h3 {
+            margin: 15px 0 10px;
+            color: #6b7a4f;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        header, footer {
+            background-color: #4b5d45;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        footer {
+            padding: 15px;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        /* Navigation */
+        #top {
+            background-color: #dcd7c4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #top h2 {
+            border: none;
+            margin-bottom: 15px;
+        }
+
+        #top ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        #top ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #4b5d45;
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        #top ul li a:hover {
+            background-color: #7a8f5f;
+        }
+
+        /* Shared section spacing */
+        div[id] {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* About */
+        dl dt {
+            font-weight: bold;
+            color: #4b5d45;
+            margin-top: 10px;
+        }
+
+        dl dd {
+            margin-left: 20px;
+            color: #3f4d3a;
+        }
+
+        /* Classes */
+        ol, ul {
+            margin-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 15px;
+            background-color: #ffffff;
+        }
+
+        th, td {
+            border: 1px solid #4b5d45;
+            padding: 10px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4b5d45;
+            color: #ffffff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f5f3ea;
+        }
+
+        /* Gallery */
+        #gallery {
+            text-align: center;
+        }
+
+        img {
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Media */
+        audio, video {
+            display: block;
+            margin: 15px auto;
+        }
+
+        iframe {
+            display: block;
+            margin: 15px auto;
+            border-radius: 8px;
+            max-width: 100%;
+        }
+
+        /* Booking form */
+        form {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        fieldset {
+            border: 1px solid #4b5d45;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #4b5d45;
+            padding: 0 10px;
+        }
+
+        label {
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            max-width: 350px;
+            padding: 8px 10px;
+            border: 1px solid #a9b8a0;
+            border-radius: 5px;
+            background-color: #f9f8f3;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #4b5d45;
+            background-color: #ffffff;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4b5d45;
+            color: #ffffff;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #6b7a4f;
+        }
+
+        input[type="reset"] {
+            background-color: #dcd7c4;
+            color: #2f3e2e;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #c9c3ac;
+        }
+
+        progress {
+            width: 200px;
+            height: 15px;
+            accent-color: #4b5d45;
+        }
+
+        /* Contact */
+        #contact {
+            text-align: center;
+        }
+
+        #contact a {
+            color: #4b5d45;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            #top ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            img, video {
+                width: 100%;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            select,
+            textarea {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Meditation Center</h1>
+        <p>Find your inner peace, one breath at a time</p>
+    </header>
+
+    <!-- Navigation section with internal/bookmark links -->
+    <div id="top">
+        <h2>Quick Navigation</h2>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#classes">Our Classes</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#media">Media</a></li>
+            <li><a href="#booking">Book a Session</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- About section -->
+    <div id="about">
+        <h2>About Us</h2>
+        <p>Meditation Center has been guiding people towards mindfulness and calmness since 2015.</p>
+        <p>We believe that a few quiet minutes each day can transform the way you think, feel, and live.</p>
+
+        <h3>Our Philosophy</h3>
+        <dl>
+            <dt>Mindfulness</dt>
+            <dd>Being fully present in the current moment.</dd>
+            <dt>Compassion</dt>
+            <dd>Practicing kindness towards oneself and others.</dd>
+            <dt>Balance</dt>
+            <dd>Maintaining harmony between mind, body, and spirit.</dd>
+        </dl>
+    </div>
+
+    <!-- Classes section with nested lists and table -->
+    <div id="classes">
+        <h2>Our Classes</h2>
+
+        <h3>Types of Sessions</h3>
+        <ol>
+            <li>Guided Meditation
+                <ul>
+                    <li>Breathing Meditation</li>
+                    <li>Body Scan Meditation</li>
+                </ul>
+            </li>
+            <li>Yoga and Meditation
+                <ul>
+                    <li>Morning Yoga Flow</li>
+                    <li>Evening Relaxation Yoga</li>
+                </ul>
+            </li>
+            <li>Silent Retreats</li>
+        </ol>
+
+        <h3>Class Schedule</h3>
+        <table>
+            <tr>
+                <th>Session</th>
+                <th>Day</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>Morning Meditation</td>
+                <td>Monday - Friday</td>
+                <td>6:00 AM - 7:00 AM</td>
+            </tr>
+            <tr>
+                <td>Yoga Flow</td>
+                <td>Tuesday, Thursday</td>
+                <td>5:30 PM - 6:30 PM</td>
+            </tr>
+            <tr>
+                <td>Weekend Retreat</td>
+                <td>Saturday</td>
+                <td>9:00 AM - 12:00 PM</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Gallery section with image and clickable image link -->
+    <div id="gallery">
+        <h2>Gallery</h2>
+        <p>A peaceful corner of our meditation hall:</p>
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400" alt="Meditation hall with candles">
+
+        <p>Click the image below to visit our external partner site:</p>
+        <a href="https://www.headspace.com" target="_blank">
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300" alt="Person meditating outdoors">
+        </a>
+    </div>
+
+    <!-- Media section with audio, video and iframe -->
+    <div id="media">
+        <h2>Media</h2>
+
+        <h3>Relaxing Sounds</h3>
+        <audio controls>
+            <source src="meditation-music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h3>Guided Meditation Video</h3>
+        <video controls width="300">
+            <source src="video2.mp4" type="video/mp4">
+            Your browser does not support the video element.
+        </video>
+
+        <h3>Our Location</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.359883011698!2d76.74148607509095!3d10.936163989222464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba866bd6aaaaaab%3A0xc650b8a75e7b51f0!2sKarunya%20Institute%20of%20Technology%20and%20Sciences%20(Deemed%20University)!5e0!3m2!1sen!2sin!4v1785941228230!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+
+    <!-- Booking form section with form elements, fieldset, label, select, progress -->
+    <div id="booking">
+        <h2>Book a Session</h2>
+        <form action="/booking.php" method="get">
+            <fieldset>
+                <legend>Personal Details</legend>
+
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname"><br><br>
+
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname"><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone"><br><br>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob"><br><br>
+            </fieldset>
+
+            <fieldset>
+                <legend>Session Details</legend>
+
+                <label for="session">Choose a Session:</label>
+                <select id="session" name="session">
+                    <option value="breathing">Breathing Meditation</option>
+                    <option value="bodyscan">Body Scan Meditation</option>
+                    <option value="yoga">Yoga Flow</option>
+                    <option value="retreat">Weekend Retreat</option>
+                </select><br><br>
+
+                <label for="time">Preferred Time:</label>
+                <input type="time" id="time" name="time"><br><br>
+
+                <label for="duration">Session Duration (in hours):</label>
+                <input type="range" id="duration" name="duration" min="1" max="3"><br><br>
+
+                <label for="guests">Number of Guests:</label>
+                <input type="number" id="guests" name="guests" min="1" max="10"><br><br>
+
+                <p>Gender:</p>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br><br>
+
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Subscribe to our newsletter</label><br><br>
+
+                <label for="notes">Additional Notes:</label><br>
+                <textarea id="notes" name="notes" rows="4" cols="40"></textarea><br><br>
+
+                <label for="idproof">Upload ID Proof:</label>
+                <input type="file" id="idproof" name="idproof"><br><br>
+
+                <label>Seats Filled:</label>
+                <progress value="6" max="10"></progress><br><br>
+            </fieldset>
+
+            <input type="submit" value="Book Now">
+            <input type="reset" value="Clear Form">
+        </form>
+    </div>
+
+    <!-- Contact section with email, phone and bookmark link -->
+    <div id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:info@shantimeditation.com">info@shantimeditation.com</a></p>
+        <p>Phone: <a href="tel:+911234567890">+91 12345 67890</a></p>
+        <p><a href="#top">Back to Top</a></p>
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2026 Shanti Meditation Center. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
